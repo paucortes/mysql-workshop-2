@@ -1,0 +1,6 @@
+Delete decodemtl_addressbook.Account and all associated date
+
+DROP TABLE Account;
+
+SELECT * FROM Account;                                                                        
+ERROR 1146 (42S02): Table 'decodemtl_addressbook_import.Account' doesn't exist
