@@ -1,0 +1,14 @@
+Delete all data from decodemtl_addressbook.Entry without using a DELETE statement
+
+SELECT * FROM Entry;                                                                                                                                
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName     | birthday            | type | subtype | contentLineOne  | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | work | email   | pau@work.com    | NULL           | NULL             | NULL            | NULL            |
+|  2 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | home | address | 1005 Ave Wilson | Montreal, QC   | H4A 2T1          | Canada          | NULL            |
+|  3 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | home | phone   | 438-402-7879    | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+
+TRUNCATE TABLE Entry;
+SELECT * FROM Entry; 
+Empty set
