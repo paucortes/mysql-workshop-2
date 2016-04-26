@@ -1,0 +1,55 @@
+Modify the decodemtl_addressbook.Account row
+Modify the decodemtl_addressbook.AddressBook row
+Modify the three decodemtl_addressbook.Entry rows using one query only
+
+SELECT * FROM Account;
++----+------------------+------------+---------------------+---------------------+
+| id | email            | password   | createdOn           | modifiedOn          |
++----+------------------+------------+---------------------+---------------------+
+|  1 | myself@email.com | mypassword | 2016-04-24 19:13:00 | 2016-04-24 19:13:00 |
++----+------------------+------------+---------------------+---------------------+
+
+UPDATE Account SET password="newpassword" WHERE email="myself@email.com";
+SELECT * FROM Account;
++----+------------------+-------------+---------------------+---------------------+
+| id | email            | password    | createdOn           | modifiedOn          |
++----+------------------+-------------+---------------------+---------------------+
+|  1 | myself@email.com | newpassword | 2016-04-24 19:13:00 | 2016-04-24 19:13:00 |
++----+------------------+-------------+---------------------+---------------------+
+
+
+SELECT * FROM AddressBook;
++----+-----------+------------+---------------------+---------------------+
+| id | accountId | name       | createdOn           | modifiedOn          |
++----+-----------+------------+---------------------+---------------------+
+|  1 |    123456 | Pau Cortes | 2016-04-24 19:15:00 | 2016-04-25 19:17:00 |
++----+-----------+------------+---------------------+---------------------+
+
+UPDATE AddressBook SET accountId=123 WHERE name="Pau Cortes";
+SELECT * FROM Account;
++----+-----------+------------+---------------------+---------------------+
+| id | accountId | name       | createdOn           | modifiedOn          |
++----+-----------+------------+---------------------+---------------------+
+|  1 |       123 | Pau Cortes | 2016-04-24 19:15:00 | 2016-04-25 19:17:00 |
++----+-----------+------------+---------------------+---------------------+
+
+
+SELECT * FROM Entry;
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type | subtype | contentLineOne  | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Pau       | Cortes   | 1979-11-23 00:00:00 | work | email   | pau@work.com    | NULL           | NULL             | NULL            | NULL            |
+|  2 |             1 | Pau       | Cortes   | 1979-11-23 00:00:00 | home | address | 1005 Ave Wilson | Montreal, QC   | H4A 2T1          | Canada          | NULL            |
+|  3 |             1 | Pau       | Cortes   | 1979-11-23 00:00:00 | home | phone   | 438-402-7879    | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+
+UPDATE Entry SET lastName = "Cortes Lledo";
+
+SELECT * FROM Entry;                                                                                                                               
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName     | birthday            | type | subtype | contentLineOne  | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | work | email   | pau@work.com    | NULL           | NULL             | NULL            | NULL            |
+|  2 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | home | address | 1005 Ave Wilson | Montreal, QC   | H4A 2T1          | Canada          | NULL            |
+|  3 |             1 | Pau       | Cortes Lledo | 1979-11-23 00:00:00 | home | phone   | 438-402-7879    | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+--------------+---------------------+------+---------+-----------------+----------------+------------------+-----------------+-----------------+
