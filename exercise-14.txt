@@ -1,0 +1,37 @@
+Create a data model representing a Store with Inventory, Customers and Invoices
+This model should provide answers to the following questions:
+What is the Store’s income within a specific date range?
+What is the Store’s top selling Inventory product?
+Which company produces the top selling Inventory product?
+What is the top refunded Inventory product?
+Which products should be taken out from the Store’s Inventory?
+Which companies should the Store stop selling products from?
+What is the amount of Internal (Canadian) vs. External sales?
+How many of a specific product remains in Inventory for a specific date?
+
+
+Inventory
+    id              INT primary key, auto-increment
+    productId       VARCHAR(50)
+    productType     VARCHAR(50)
+    productSubtype  VARCHAR(50)
+    productBrand    VARCHAR(50)
+    productModel    VARCHAR(50)
+    productVersion  VARCHAR(50)
+    dateAdded       DATETIME
+    
+Invoices
+    invoiceNumber   INT primary key, auto-increment
+    itemCost        DECIMAL(8,2)
+    itemSalePrice   DECIMAL(8,2)
+    dateSold        DATETIME
+    dateRefunded    DATETIME
+    
+Customers
+    customerId      INT primary key, auto-increment
+    country         VARCHAR(50)
+    
+Invoice with several products
+    invoiceNumber   INT
+    productId       VARCHAR(50)
+    customerId      INT
