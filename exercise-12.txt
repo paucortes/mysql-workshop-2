@@ -1,0 +1,24 @@
+Which Account owns the most Address Books?
+Which Address Book contains the most Entries?
+
+SELECT accountId, COUNT(accountId) AS numberOfEntries FROM AddressBook GROUP BY accountId ORDER BY numberOfEntries DESC LIMIT 5;
++-----------+-----------------+
+| accountId | numberOfEntries |
++-----------+-----------------+
+|        14 |              19 |
+|         5 |              19 |
+|        58 |              18 |
+|        42 |              18 |
+|         2 |              17 |
++-----------+-----------------+
+
+SSELECT addressBookId, COUNT(addressBookId) AS numberOfEntries FROM Entry GROUP BY addressBookId ORDER BY numberOfEntries DESC LIMIT 5;
++---------------+-----------------+
+| addressBookId | numberOfEntries |
++---------------+-----------------+
+|            37 |              52 |
+|            20 |              50 |
+|            50 |              49 |
+|            89 |              48 |
+|             8 |              48 |
++---------------+-----------------+
