@@ -1,0 +1,24 @@
+How many Address Book Entries are not listed as other?
+How many Address Book Entries are listed as either home or work?
+How many Address Book Entries are listed as phones?
+
+SELECT COUNT(*) FROM Entry WHERE type!='other';
++----------+
+| COUNT(*) |
++----------+
+|     2800 |
++----------+
+
+SELECT COUNT(*) FROM Entry WHERE type='home' XOR type='work';
++----------+
+| COUNT(*) |
++----------+
+|     2800 |
++----------+
+
+SELECT COUNT(*) FROM Entry WHERE subtype='phone';
++----------+
+| COUNT(*) |
++----------+
+|      600 |
++----------+
